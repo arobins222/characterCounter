@@ -116,8 +116,7 @@ h1 {
   padding: 28px;
 }
 
-.card-header,
-.overflow-heading {
+.card-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -135,15 +134,13 @@ h1 {
   font-weight: 800;
 }
 
-.card-header p,
-.overflow-heading p {
+.card-header p p {
   margin-bottom: 0;
   color: var(--muted);
   font-size: 0.9rem;
 }
 
-.secondary-button,
-.primary-button {
+.secondary-button {
   min-height: 42px;
   border-radius: 12px;
   padding: 0 16px;
@@ -157,14 +154,8 @@ h1 {
   background: rgba(255, 255, 255, 0.05);
 }
 
-.primary-button {
-  color: #06111f;
-  border: 0;
-  background: linear-gradient(135deg, var(--cyan), #7ce8ff);
-}
 
-.secondary-button:hover,
-.primary-button:hover {
+.secondary-button:hover:hover {
   transform: translateY(-1px);
 }
 
@@ -182,8 +173,14 @@ textarea {
   color: var(--text);
   background: rgba(2, 10, 20, 0.56);
   outline: none;
+  field-sizing: fixed;
+  resize: none;
   line-height: 1.55;
   transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+textarea {
+	
 }
 
 textarea::placeholder {
@@ -310,33 +307,9 @@ textarea:focus {
   background: rgba(255, 92, 108, 0.15);
 }
 
-.overflow-panel {
-  margin-top: 18px;
-  padding: 18px;
-  border: 1px solid rgba(255, 92, 108, 0.22);
-  border-radius: 16px;
-  background: rgba(255, 92, 108, 0.06);
-}
 
-.overflow-heading {
-  margin-bottom: 14px;
-}
 
-.overflow-heading span {
-  display: block;
-  margin-bottom: 4px;
-  font-weight: 800;
-}
 
-.safe-preview {
-  min-height: 56px;
-  padding: 14px;
-  border-radius: 12px;
-  color: #e9f3ff;
-  background: rgba(0, 0, 0, 0.22);
-  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
-  overflow-wrap: anywhere;
-}
 
 .hidden {
   display: none;
@@ -381,29 +354,7 @@ textarea:focus {
   line-height: 1.45;
 }
 
-.toast {
-  position: fixed;
-  left: 50%;
-  bottom: 24px;
-  transform: translate(-50%, 120px);
-  padding: 12px 18px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 999px;
-  color: var(--text);
-  background: #12233b;
-  box-shadow: var(--shadow);
-  opacity: 0;
-  transition: transform 180ms ease, opacity 180ms ease;
-}
 
-.toast.show {
-  transform: translate(-50%, 0);
-  opacity: 1;
-}
-
-textarea {
-	resize: none
-}
 
 @media (max-width: 700px) {
   .app-shell {
@@ -436,15 +387,12 @@ textarea {
     grid-template-columns: 1fr;
   }
 
-  .card-header,
-  .overflow-heading {
+  .card-header {
     align-items: stretch;
     flex-direction: column;
   }
 
-  .card-header button,
-  .overflow-heading button {
+  .card-header button button {
     width: 100%;
   }
-  
 }

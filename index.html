@@ -11,8 +11,8 @@
     <section class="hero">
       <div class="brand-mark">DC</div>
       <div>
-        <p class="eyebrow">FORD PRO DASHCAM AUTO ORDERS</p>
-        <h1>Character Counter</h1>
+        <p class="eyebrow">DASHCAM AUTO ORDERS</p>
+        <h1>ADDRESS Character Counter</h1>
         <p class="subtitle">
           Validate EU order text before submission. Vendor limit: <strong>60 characters</strong>.
         </p>
@@ -36,7 +36,7 @@
           id="orderText"
           maxlength="500"
           spellcheck="false"
-          placeholder="Enter Address Here..."
+          placeholder="Example: 14 Rue de l'Industrie, Bâtiment C, 2ème étage, Paris"
           aria-describedby="statusMessage"
         ></textarea>
 
@@ -72,19 +72,6 @@
         </div>
       </div>
 
-      <div id="overflowPanel" class="overflow-panel hidden">
-        <div class="overflow-heading">
-          <div>
-            <span>Vendor-safe preview</span>
-            <p>The first 60 characters are shown below.</p>
-          </div>
-          <button id="copyButton" class="primary-button" type="button">
-            Copy first 60
-          </button>
-        </div>
-
-        <div id="safePreview" class="safe-preview"></div>
-      </div>
     </section>
 
     <section class="tips-card">
@@ -106,9 +93,6 @@
     </section>
   </main>
 
-  <div id="toast" class="toast" role="status" aria-live="polite">
-    Copied to clipboard
-  </div>
 
   <script src="script.js"></script>
 </body>

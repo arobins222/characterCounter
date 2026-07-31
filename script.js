@@ -9,11 +9,7 @@ const statusPanel = document.getElementById("statusPanel");
 const statusIcon = document.getElementById("statusIcon");
 const statusTitle = document.getElementById("statusTitle");
 const statusMessage = document.getElementById("statusMessage");
-const overflowPanel = document.getElementById("overflowPanel");
-const safePreview = document.getElementById("safePreview");
 const clearButton = document.getElementById("clearButton");
-const copyButton = document.getElementById("copyButton");
-const toast = document.getElementById("toast");
 
 function getWordCount(text) {
   const trimmed = text.trim();
@@ -46,7 +42,6 @@ function updateCounter() {
       "Ready for input",
       `The value must be ${LIMIT} characters or fewer.`
     );
-    overflowPanel.classList.add("hidden");
     return;
   }
 
@@ -58,7 +53,6 @@ function updateCounter() {
       "Within vendor limit",
       `${remaining} characters remain. This value is safe to submit.`
     );
-    overflowPanel.classList.add("hidden");
     return;
   }
 
@@ -70,7 +64,6 @@ function updateCounter() {
       "Approaching the limit",
       `${remaining} character${remaining === 1 ? "" : "s"} remain. Review before submitting.`
     );
-    overflowPanel.classList.add("hidden");
     return;
   }
 
@@ -83,19 +76,8 @@ function updateCounter() {
     `Remove ${overBy} character${overBy === 1 ? "" : "s"} before submitting this order.`
   );
 
-  safePreview.textContent = [...text].slice(0, LIMIT).join("");
-  overflowPanel.classList.remove("hidden");
 }
 
-function showToast(message) {
-  toast.textContent = message;
-  toast.classList.add("show");
-
-  window.clearTimeout(showToast.timer);
-  showToast.timer = window.setTimeout(() => {
-    toast.classList.remove("show");
-  }, 1800);
-}
 
 clearButton.addEventListener("click", () => {
   orderText.value = "";
@@ -103,25 +85,6 @@ clearButton.addEventListener("click", () => {
   orderText.focus();
 });
 
-copyButton.addEventListener("click", async () => {
-  const safeText = [...orderText.value].slice(0, LIMIT).join("");
-
-  try {
-    await navigator.clipboard.writeText(safeText);
-    showToast("First 60 characters copied");
-  } catch {
-    const helper = document.createElement("textarea");
-    helper.value = safeText;
-    helper.setAttribute("readonly", "");
-    helper.style.position = "absolute";
-    helper.style.left = "-9999px";
-    document.body.appendChild(helper);
-    helper.select();
-    document.execCommand("copy");
-    helper.remove();
-    showToast("First 60 characters copied");
-  }
-});
 
 orderText.addEventListener("input", updateCounter);
 
