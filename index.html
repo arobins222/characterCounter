@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashcam Order Character Counter</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <section class="hero">
+      <div class="brand-mark">DC</div>
+      <div>
+        <p class="eyebrow">FORD PRO DASHCAM AUTO ORDERS</p>
+        <h1>Character Counter</h1>
+        <p class="subtitle">
+          Validate EU order text before submission. Vendor limit: <strong>60 characters</strong>.
+        </p>
+      </div>
+    </section>
+
+    <section class="counter-card">
+      <div class="card-header">
+        <div>
+          <label for="orderText">Order text</label>
+          <p>Paste the full vendor-facing value below.</p>
+        </div>
+
+        <button id="clearButton" class="secondary-button" type="button">
+          Clear
+        </button>
+      </div>
+
+      <div class="textarea-wrap">
+        <textarea
+          id="orderText"
+          maxlength="500"
+          spellcheck="false"
+          placeholder="Enter Address Here..."
+          aria-describedby="statusMessage"
+        ></textarea>
+
+        <div class="limit-line" aria-hidden="true"></div>
+      </div>
+
+      <div class="metrics">
+        <article class="metric">
+          <span class="metric-label">Characters</span>
+          <strong id="characterCount">0</strong>
+        </article>
+
+        <article class="metric">
+          <span class="metric-label">Remaining</span>
+          <strong id="remainingCount">60</strong>
+        </article>
+
+        <article class="metric">
+          <span class="metric-label">Words</span>
+          <strong id="wordCount">0</strong>
+        </article>
+      </div>
+
+      <div class="progress-track" aria-hidden="true">
+        <div id="progressBar" class="progress-bar"></div>
+      </div>
+
+      <div id="statusPanel" class="status-panel status-ready">
+        <div id="statusIcon" class="status-icon">✓</div>
+        <div>
+          <strong id="statusTitle">Ready for input</strong>
+          <p id="statusMessage">The value must be 60 characters or fewer.</p>
+        </div>
+      </div>
+
+      <div id="overflowPanel" class="overflow-panel hidden">
+        <div class="overflow-heading">
+          <div>
+            <span>Vendor-safe preview</span>
+            <p>The first 60 characters are shown below.</p>
+          </div>
+          <button id="copyButton" class="primary-button" type="button">
+            Copy first 60
+          </button>
+        </div>
+
+        <div id="safePreview" class="safe-preview"></div>
+      </div>
+    </section>
+
+    <section class="tips-card">
+      <h2>EU order tips</h2>
+      <div class="tips-grid">
+        <div>
+          <span class="tip-number">01</span>
+          <p>Remove duplicate spaces and unnecessary punctuation.</p>
+        </div>
+        <div>
+          <span class="tip-number">02</span>
+          <p>Use approved abbreviations only when the full address will not fit.</p>
+        </div>
+        <div>
+          <span class="tip-number">03</span>
+          <p>Keep apartment, building, unit, and postal details that affect delivery.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite">
+    Copied to clipboard
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
